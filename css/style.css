@@ -1,0 +1,84 @@
+body {
+  background-color: rgb(6, 6, 6);
+  background-image: url("/images/chalkboard.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-rows: 15% 85%;
+  grid-template-columns: 85% 15%;
+  grid-template-areas:
+    "header header"
+    "gameArea sidebar";
+  height: 100vh;
+  margin: 0;
+  color: white;
+}
+
+#header {
+  grid-area: header;
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: normal;
+  letter-spacing: 5px;
+  font-style: italic;
+  color: yellow;
+}
+
+#game-area {
+  grid-area: gameArea;
+  display: grid;
+  grid-template-rows: 33% 33% 33%;
+  grid-template-columns: 33% 33% 33%;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  text-align: center;
+  line-height: 100px;
+}
+
+#top-left,
+#top-center,
+#top-right,
+#center-left,
+#center-center,
+#center-right {
+  border-bottom: #3154ff 9px solid;
+  font-size: 13rem;
+  font-family: cursive;
+  text-align: center;
+   
+}
+
+#top-left,
+#top-center,
+#center-left,
+#center-center,
+#bottom-left,
+#bottom-center {
+  border-right: #2846da 9px solid;
+  font-size: 13rem;
+  font-family: cursive;
+  text-align: center;
+}
+
+#bottom-right {
+  font-size: 13rem;
+  font-family: cursive;
+  text-align: center;
+}
+.new-game-btn {
+  background: linear-gradient(rgb(3, 239, 54),rgb(1, 79, 1));
+  color: white;
+  font-size: 1.8rem;
+  height: 70px;
+  width: 100%;
+  
+}
+.forfeit-game-btn {
+  background: linear-gradient(rgb(251, 4, 4),rgb(139, 0, 0));
+  height: 70px;
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+}
