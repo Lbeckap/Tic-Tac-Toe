@@ -19,6 +19,7 @@ const gameSquaresArray = [
   "bottom-right",
 ];
 
+// let winArray = ["", "", "", "", "", "", "", "", ""];
 //Array of all possible winning conditions(horizonal, diagonal, vertical)
 let winArray = [
   [0, 1, 2],
@@ -40,34 +41,66 @@ function mapWinArray(clickedElementIndex) {
   const items = Array.prototype.indexOf.call(parent.children, child);
   const index = items;
   console.log(index);
-  
+  // winArray.splice(index, 1, clickedElementIndex.innerText);
+
   /*Loop through winArray to locate all indexes and replace with clickedElementIndex.innerText (X or O) */
-  const winArraySearch = (arr, target) => {
+  const linearSearch = (arr, target) => {
     for (let i = 0; i < arr.length; i++) {
       for (let j = 0; j < arr[i].length; j++) {
         if (arr[i][j] == target) {
           arr[i][j] = clickedElementIndex.innerText;
-          
+          //return [i, j];
+          firstLevelofArrayIndex = (arr[i]);
         }
       }
+      // return [-1, -1]; Commented out to allow for undefined value
     }
   };
   
-winArraySearch(winArray, index);
-console.log(winArray);
+ console.log(winArray);
+ console.log(linearSearch(winArray, index));
+ console.log(firstLevelofArrayIndex);
  
+  
 }
 
-/*Check for winner. Loop through array and use allEqual to see if all items in array are equal.
+/*Check for winner. Only code for horizontal wins has been written so far. I had trouble comparing if diagonal and vertical indexes were equal.
+OLD: if ( allEqual(winArray.slice(3, 6)) === true &&
+    winArray.slice(3, 6)[0] !== "") {
+    winAlert();
+  }
 */
 function checkforWinner() {
   const allEqual = (arr) => arr.every((val) => val === arr[0]);
-  
  for(let i = 0; i < winArray.length; i++) {
   if (allEqual(winArray[i]) === true && winArray[i] !== "") {
     winAlert();
   } 
  }
+  // if (allEqual(winArray[0]) === true && winArray[0] !== "") {
+  //   winAlert();
+  // } 
+  // else if (allEqual(winArray[1]) === true && winArray[1] !== "") {
+  //   winAlert();
+  // } else if (allEqual(winArray[2]) === true && winArray[2] !== "") {
+  //   winAlert();
+  // }
+  // else if (allEqual(winArray[3]) === true && winArray[3] !== "") {
+  //   winAlert();
+  // }
+  // else if (allEqual(winArray[4]) === true && winArray[4] !== "") {
+  //   winAlert();
+  // }
+  // else if (allEqual(winArray[5]) === true && winArray[5] !== "") {
+  //   winAlert();
+  // }
+  // else if (allEqual(winArray[6]) === true && winArray[6] !== "") {
+  //   winAlert();
+  // }
+  // else if (allEqual(winArray[7]) === true && winArray[7] !== "") {
+  //   winAlert();
+  // }
+  
 }
 
 //Winner alert
@@ -91,14 +124,12 @@ function handleSquareClick(squaredId) {
     mapWinArray(clickedElement);
     checkforWinner();
     isItXTurn = false;
-
   } else if (!isItXTurn && clickedElement.innerText === "") {
     clickedElement.innerText = "O";
     clickedElement.style.color = "lightyellow";
     mapWinArray(clickedElement);
     checkforWinner();
     isItXTurn = true;
-
   } else {
     alert(
       "You cannnot click on a square that has already been clicked. Try Again!"
@@ -155,6 +186,7 @@ function newGameButtonAlert() {
 
 // Step 5 :
 function newGameSquaresSetup() {
+  // winArray = ["", "", "", "", "", "", "", "", ""];
   winArray = [
     [0, 1, 2],
     [3, 4, 5],

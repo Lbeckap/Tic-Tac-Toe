@@ -44,7 +44,7 @@ body {
 #center-center,
 #center-right {
   border-bottom: #3154ff 9px solid;
-  font-size: 13rem;
+  font-size: 10rem;
   font-family: cursive;
   text-align: center;
    
@@ -57,13 +57,13 @@ body {
 #bottom-left,
 #bottom-center {
   border-right: #2846da 9px solid;
-  font-size: 13rem;
+  font-size: 10rem;
   font-family: cursive;
   text-align: center;
 }
 
 #bottom-right {
-  font-size: 13rem;
+  font-size: 10rem;
   font-family: cursive;
   text-align: center;
 }
